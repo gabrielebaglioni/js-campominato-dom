@@ -44,3 +44,24 @@ function getnonrepetelistnumber(nElements, min, max){
    }
    return numbers
 }
+function numeroutente (){
+   let NumeroInserito = 0;
+   do{
+      NumeroInserito = Number(prompt("inserisci un numero da 1 a 10"));
+      if(isNaN(NumeroInserito)){
+         alert("puoi inserire solo numeri")
+      } else (NumeroGiaInserito.includes(NumeroInserito))
+         alert("hai già inserito questo numero")
+   } while (isNaN(NumeroInserito))  NumeroGiaInserito.includes(NumeroInserito);
+   return NumeroInserito;
+}
+//
+//_________________________________________________
+//               MAIN
+//__________________________________________________
+
+// creo una costante di numenri "bomba" che non si ripetono
+const NumeriBomba = getnonrepetelistnumber(2, 1, 10); // due numeri bomba da 1 a 10
+// console.log(NumeriBomba);
+let NumeroInserito = 0;
+let NumeroGiaInserito =[];
