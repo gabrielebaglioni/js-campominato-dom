@@ -49,9 +49,11 @@ function numeroutente (){
    do{
       NumeroInserito = Number(prompt("inserisci un numero da 1 a 10"));
       if(isNaN(NumeroInserito)){
-         alert("puoi inserire solo numeri")
-      } else (NumeroGiaInserito.includes(NumeroInserito))
-         alert("hai già inserito questo numero")
+         alert("puoi inserire solo numeri");
+      } if (NumeroGiaInserito.includes(NumeroInserito)){
+         alert("hai già inserito questo numero");
+      }else(NumeroInserito.push(NumeroGiaInserito));
+         
    } while (isNaN(NumeroInserito))  NumeroGiaInserito.includes(NumeroInserito);
    return NumeroInserito;
 }
