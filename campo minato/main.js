@@ -47,23 +47,65 @@ function getnonrepetelistnumber(nElements, min, max){
 function numeroutente (){
    let NumeroInserito = 0;
    do{
-      NumeroInserito = Number(prompt("inserisci un numero da 1 a 10"));
+      NumeroInserito = Number(prompt("inserisci un numero da 1 a 100"));
       if(isNaN(NumeroInserito)){
          alert("puoi inserire solo numeri");
       } if (NumeroGiaInserito.includes(NumeroInserito)){
-         alert("hai già inserito questo numero");
-      }else(NumeroInserito.push(NumeroGiaInserito));
-         
+         alert("hai già inserito questo numero")
+      } else(NumeroInserito.push(NumeroGiaInserito));
+        
    } while (isNaN(NumeroInserito))  NumeroGiaInserito.includes(NumeroInserito);
    return NumeroInserito;
 }
 //
 //_________________________________________________
-//               MAIN
+//
+//                   MAIN
 //__________________________________________________
 
 // creo una costante di numenri "bomba" che non si ripetono
-const NumeriBomba = getnonrepetelistnumber(2, 1, 10); // due numeri bomba da 1 a 10
-// console.log(NumeriBomba);
-let NumeroInserito = 0;
-let NumeroGiaInserito =[];
+// const NumeriBomba = getnonrepetelistnumber(2, 1, 10); // due numeri bomba da 1 a 10
+// // console.log(NumeriBomba);
+// let NumeroInserito = 0;
+// let NumeroGiaInserito =[];
+
+// CREO LE BOMBE
+const bombs = [];
+let BombExploded = false;
+let attemps = [];
+const numberBombs = 16;
+const totalnumbers = 100;
+const numberattemps = totalnumbers - numberBombs;
+ while(bombs.length < numberBombs){
+    const bomb = getrandomumber(1, totalnumbers);
+    if(bombs.includes(bomb) === false){
+       bombs.push(bomb);
+    }
+ }
+  console.log(bombs)
+// chiedo tante valte il numero alle utente quanti  umeri "sani ci sono" 
+// il numero deve essere comprose tra 1 e 100
+//l'utente non può inserire lo stesso numero
+// fino a qunado il valore booleano è = a falso continuo a ciclare 
+// altrimenti hai perso
+while(BombExploded === false && attemps.length < numberattemps){ // al posto di "bombExploded === falso "possiamo negare la variabile con il ! quindi in questo caso "!bombsExploded".
+    let userNumber;
+    do{
+       userNumber = Number(prompt("inserisci un numero da 1 a 100"));
+    }while(isNaN(userNumber) || userNumber < 1 || userNumber > totalnumbers)
+
+    if(bombs.includes(userNumber)){
+       BombExploded = true;
+    } else if(attemps.includes(userNumber)){
+       alert("il numero lo hai già inserito");
+    }else{
+       attemps.push(userNumber);
+    }
+}
+
+// console.log("hai perso")
+if(BombExploded){
+   alert(`HAI PERSO il tuo punteggio è ${attemps.length}`)
+}else{
+   alert("hai vinto!!!!!")
+}
