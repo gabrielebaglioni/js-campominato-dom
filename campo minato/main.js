@@ -69,12 +69,29 @@ function numeroutente (){
 // let NumeroInserito = 0;
 // let NumeroGiaInserito =[];
 
+
+// genero i livelli di difficoltà
+let LivelloDifficolta
+do{
+    LivelloDifficolta = Number(prompt("inserisci il livello di difficolà tra 0 e 2"));
+}while(isNaN(LivelloDifficolta) || LivelloDifficolta < 0 || LivelloDifficolta > 2 ){
+
+}
+
+let totalnumbers;
+if(LivelloDifficolta === 0){
+   totalnumbers = 100;
+}else if(LivelloDifficolta === 1){
+   totalnumbers = 80;
+}else{
+   totalnumbers = 50;
+}
+console.log(totalnumbers)
 // CREO LE BOMBE
 const bombs = [];
 let BombExploded = false;
 let attemps = [];
 const numberBombs = 16;
-const totalnumbers = 100;
 const numberattemps = totalnumbers - numberBombs;
  while(bombs.length < numberBombs){
     const bomb = getrandomumber(1, totalnumbers);
